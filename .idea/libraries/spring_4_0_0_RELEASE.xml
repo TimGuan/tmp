@@ -1,0 +1,27 @@
+<component name="libraryTable">
+  <library name="spring-4.0.0.RELEASE" type="spring">
+    <properties version="4.0.0.RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-aop-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-aspects-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-beans-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-context-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-context-support-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-core-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-expression-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-instrument-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-instrument-tomcat-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-jdbc-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-jms-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-messaging-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-orm-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-oxm-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-test-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-tx-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/aopalliance-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

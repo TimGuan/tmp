@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="tim.blog.api:war">
+    <output-path>$PROJECT_DIR$/tim.blog.api/target</output-path>
+    <root id="archive" name="tim.blog.api-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="tim.blog.api:war exploded" />
+    </root>
+  </artifact>
+</component>

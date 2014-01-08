@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="spring-mvc-4.0.0.RELEASE" type="spring-mvc">
+    <properties version="4.0.0.RELEASE" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-web-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-webmvc-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-webmvc-portlet-4.0.0.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/tim.blog.api/lib/spring-websocket-4.0.0.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
