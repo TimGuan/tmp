@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- Controllers -->
-    <context:component-scan base-package="com.datayes.cloud.api.mediator.controller"/>
+    <!--<context:component-scan base-package="com.datayes.cloud.api.mediator.controller"/>-->
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="order" value="0"/>
         <property name="defaultViews">
