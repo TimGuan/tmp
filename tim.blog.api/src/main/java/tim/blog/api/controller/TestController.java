@@ -3,6 +3,7 @@ package tim.blog.api.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,14 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * This is a demo.
  */
 @Controller
-//@RequestMapping(value="/test")
+@RequestMapping(value="/test")
 public class TestController {
     @RequestMapping(value = "/hello/{name}")
+    @ResponseBody
     public String hello(@PathVariable(value="name")String param){
         return "Hello,"+param;
-    }
-    @RequestMapping(value = "/hello2")
-    public String hello2(){
-        return "Hello";
     }
 }

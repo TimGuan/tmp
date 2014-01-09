@@ -22,9 +22,19 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>blog</servlet-name>
-        <url-pattern>/s</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <!-- Disable JSESSIONID in url for Tomcat7 -->
+    <!--静态资源不要被dispatchServlet处理，另外自定义的serlvet优先与dispatchServlet
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    -->
+<!-- Disable JSESSIONID in url for Tomcat7 -->
     <session-config>
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>

@@ -13,6 +13,10 @@
     <context:annotation-config />
     <!-- 设置使用注解的类所在的jar包 -->
     <context:component-scan base-package="tim.blog.api.controller"></context:component-scan>
-    <!-- 完成请求和注解POJO的映射 -->
+    <!-- 完成请求和注解POJO的映射,mvc:annotation-driven开启mvc annotation默认使用RequestMappingHandlerAdapter,不需要重复配置-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
+    <!-- Turns on support for mapping requests to Spring MVC @Controller methods
+          Also registers default Formatters and Validators for use across all @Controllers -->
+    <mvc:annotation-driven />
 </beans>
