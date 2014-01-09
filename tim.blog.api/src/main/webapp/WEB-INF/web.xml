@@ -2,9 +2,15 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-    <listener>
+    <!--ContextListener load <context>-->
+    <!--<listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <context-param>
+        <param-name>contextConfigLocation </param-name>
+        <param-value>/WEB-INF/classes/applicationContext.xml</param-value>
+    </context-param>-->
+    <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
     <servlet>
         <servlet-name>blog</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -14,12 +20,10 @@
         </init-param>
         <load-on-startup>10</load-on-startup>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>blog</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/s</url-pattern>
     </servlet-mapping>
-
     <!-- Disable JSESSIONID in url for Tomcat7 -->
     <session-config>
         <tracking-mode>COOKIE</tracking-mode>
