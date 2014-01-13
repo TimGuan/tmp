@@ -15,7 +15,6 @@
     <context:component-scan base-package="tim.blog.api.controller"></context:component-scan>
     <!-- 完成请求和注解POJO的映射,mvc:annotation-driven开启mvc annotation默认使用RequestMappingHandlerAdapter,不需要重复配置-->
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
     <!-- Turns on support for mapping requests to Spring MVC @Controller methods
           Also registers default Formatters and Validators for use across all @Controllers -->
     <mvc:annotation-driven />
@@ -28,17 +27,16 @@
         <property name="order" value="1" />
         <!-- 设置内容协商管理器 -->
         <property name="contentNegotiationManager">
-            <bean id="contentNegotiationManager"
-                  class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+            <bean class="org.springframework.web.accept.ContentNegotiationManager">
                 <constructor-arg>
-                    <props>
-                        <!-- if jackson2Present || jacksonPresent -->
-                        <prop key="json">application/json</prop>
-                        <!-- endif -->
-                        <!-- if jaxb2Present -->
-                        <prop key="xml">application/xml</prop>
-                        <!-- endif -->
-                    </props>
+                    <bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+                        <constructor-arg>
+                            <map>
+                                <entry key="json" value="application/json"/>
+                                <entry key="xml" value="application/xml"/>
+                            </map>
+                        </constructor-arg>
+                    </bean>
                 </constructor-arg>
             </bean>
         </property>
@@ -48,15 +46,21 @@
                 <!--json view-->
                 <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
                 </bean>
-                <!--xml view -->
-                <bean class= "org.springframework.web.servlet.view.xml.MarshallingView">
-                    <property name="marshaller">
-                        <bean class="org.springframework.oxm.xstream.XStreamMarshaller">
+                <!-- XML View -->
+                <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
+                    <constructor-arg>
+                        <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+                            <property name="packagesToScan">
+                                <list>
+                                    <value>tim.blog.api.model</value>
+                                </list>
+                            </property>
                         </bean>
-                    </property>
+                    </constructor-arg>
                 </bean>
             </list>
         </property>
+        <!--视图解析器-->
         <property name="viewResolvers">
             <list></list>
         </property>
