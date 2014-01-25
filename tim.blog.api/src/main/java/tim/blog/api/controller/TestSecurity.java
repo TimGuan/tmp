@@ -1,9 +1,9 @@
 package tim.blog.api.controller;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import tim.blog.api.model.Demo;
 
@@ -15,17 +15,11 @@ import tim.blog.api.model.Demo;
  * This is a demo.
  */
 @RestController
-@RequestMapping(value="/test")
-public class TestController {
+@RequestMapping(value="/security")
+public class TestSecurity {
+    @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(value = "/hello/{name}")
     public String hello(@PathVariable(value="name")String param){
         return "Hello,"+param;
-    }
-    @RequestMapping(value = "/demo")
-    public Demo demo(){
-        Demo demo=new Demo();
-        demo.setId(123);
-        demo.setName(null);
-        return demo;
     }
 }

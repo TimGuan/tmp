@@ -19,9 +19,10 @@
           Also registers default Formatters and Validators for use across all @Controllers -->
     <mvc:annotation-driven />
     <!--<mvc:default-servlet-handler />-->
-    <mvc:resources mapping="/js/**" location="../webapp/static_resources/js"/>
-    <mvc:resources mapping="/css/**" location="../webapp/static_resources/css"/>
-    <mvc:resources mapping="/image/**" location="../webapp/static_resources/image"/>
+    <mvc:resources mapping="/js/" location="../webapp/static_resources/js/"/>
+    <mvc:resources mapping="/css/" location="../webapp/static_resources/css/"/>
+    <mvc:resources mapping="/image/" location="../webapp/static_resources/image/"/>
+
     <!-- 配置内容协商视图解析 -->
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="order" value="1" />
@@ -62,7 +63,12 @@
         </property>
         <!--视图解析器-->
         <property name="viewResolvers">
-            <list></list>
+            <list>
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                    <property name="prefix" value="/pages/"/>
+                    <property name="suffix" value=".jsp"></property>
+                </bean>
+            </list>
         </property>
     </bean>
 </beans>

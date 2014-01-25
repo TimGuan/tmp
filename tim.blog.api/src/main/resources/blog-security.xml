@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+    <security:http auto-config="true">
+        <!--<security:intercept-url pattern="/login" access="permitAll" />
+        <security:intercept-url pattern="/logout" access="permitAll" />
+        <security:intercept-url pattern="/accessdenied" access="permitAll" />-->
+        <security:intercept-url pattern="/**" access="ROLE_USER" />
+        <!--<security:form-login login-page="/login" default-target-url="/list" authentication-failure-url="/accessdenied" />
+        <security:logout logout-success-url="/logout" />-->
+    </security:http>
+    <security:global-method-security pre-post-annotations="enabled"/>
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="guest" authorities="ROLE_USER" password="guest"></security:user>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+</beans>
