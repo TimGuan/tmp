@@ -6,19 +6,14 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/security
        http://www.springframework.org/schema/security/spring-security.xsd">
+    <!--<security:global-method-security pre-post-annotations="enabled"/>-->
     <security:http auto-config="true">
-        <!--<security:intercept-url pattern="/login" access="permitAll" />
-        <security:intercept-url pattern="/logout" access="permitAll" />
-        <security:intercept-url pattern="/accessdenied" access="permitAll" />-->
-        <security:intercept-url pattern="/**" access="ROLE_USER" />
-        <!--<security:form-login login-page="/login" default-target-url="/list" authentication-failure-url="/accessdenied" />
-        <security:logout logout-success-url="/logout" />-->
+        <security:intercept-url pattern="/**"/>
     </security:http>
-    <security:global-method-security pre-post-annotations="enabled"/>
     <security:authentication-manager>
         <security:authentication-provider>
             <security:user-service>
-                <security:user name="guest" authorities="ROLE_USER" password="guest"></security:user>
+                <security:user name="guest" authorities="ROLE_USER" password="guest"/>
             </security:user-service>
         </security:authentication-provider>
     </security:authentication-manager>

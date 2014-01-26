@@ -2,6 +2,17 @@
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
+    <!--ContextListener load <context>-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:blog-*-context.xml
+            classpath:blog-security.xml
+        </param-value>
+    </context-param>
     <filter>
         <filter-name>encoding-filter</filter-name>
         <filter-class>
@@ -27,19 +38,6 @@
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-    <!--ContextListener load <context>-->
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>
-            classpath:blog-*-context.xml
-            classpath:blog-security.xml
-        </param-value>
-    </context-param>
-
     <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
     <servlet>
         <servlet-name>blog</servlet-name>
