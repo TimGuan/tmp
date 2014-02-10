@@ -11,6 +11,7 @@
     <title>Welcome</title>
   </head>
   <body>
+  ${message.name}
         SUCCESS
   </body>
 </html>

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+import tim.blog.api.model.Demo;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="/resolver")
 public class TestViewResolver {
     @RequestMapping(value = "/hello")
-    public String hello(){
-        return "/index";
+    public ModelAndView hello(){
+        ModelAndView view=new ModelAndView();
+        Demo demo=new Demo();
+        demo.setName("name");
+        demo.setId(123);
+        view.addObject("message",demo);
+        view.setViewName("index");
+        return view;
     }
 }

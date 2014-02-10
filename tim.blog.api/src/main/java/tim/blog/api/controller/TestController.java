@@ -1,10 +1,7 @@
 package tim.blog.api.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tim.blog.api.model.Demo;
 
 /**
@@ -22,10 +19,10 @@ public class TestController {
         return "Hello,"+param;
     }
     @RequestMapping(value = "/demo")
-    public Demo demo(){
+    public Demo demo(@RequestParam(value="name",required=false,defaultValue = "abc")String name){
         Demo demo=new Demo();
         demo.setId(123);
-        demo.setName(null);
+        demo.setName(name);
         return demo;
     }
 }

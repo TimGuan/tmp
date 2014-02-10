@@ -63,7 +63,7 @@
     </servlet-mapping>
     -->
     <!-- Disable JSESSIONID in url for Tomcat7 -->
-    <!--<session-config>
+   <session-config>
         <tracking-mode>COOKIE</tracking-mode>
-    </session-config>-->
+    </session-config>
 </web-app>
