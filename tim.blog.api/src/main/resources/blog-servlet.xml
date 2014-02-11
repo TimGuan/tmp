@@ -13,20 +13,23 @@
     <!-- 启用spring注解@Required, @Autowired, @PostConstruct-->
     <context:annotation-config/>
     <!-- 设置使用注解的类所在的jar包 -->
-    <context:component-scan base-package="tim.blog.api.controller"/>
+    <!--http://jinnianshilongnian.iteye.com/blog/1762632-->
+    <context:component-scan base-package="tim.blog.api.*" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
     <security:global-method-security pre-post-annotations="enabled"/>
     <!-- 完成请求和注解POJO的映射,mvc:annotation-driven开启mvc annotation默认使用RequestMappingHandlerAdapter,不需要重复配置-->
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
     <!-- Turns on support for mapping requests to Spring MVC @Controller methods
           Also registers default Formatters and Validators for use across all @Controllers -->
     <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
     <mvc:resources mapping="/js/" location="../webapp/static_resources/js/"/>
     <mvc:resources mapping="/css/" location="../webapp/static_resources/css/"/>
     <mvc:resources mapping="/image/" location="../webapp/static_resources/image/"/>
-
     <!-- 配置内容协商视图解析 -->
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <property name="order" value="1" />
+        <property name="order" value="1"/>
         <!-- 设置内容协商管理器 -->
         <property name="contentNegotiationManager">
             <bean class="org.springframework.web.accept.ContentNegotiationManager">

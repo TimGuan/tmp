@@ -9,6 +9,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
+            classpath:blog-persistence.xml
             classpath:blog-security.xml
         </param-value>
     </context-param>
@@ -63,7 +64,7 @@
     </servlet-mapping>
     -->
     <!-- Disable JSESSIONID in url for Tomcat7 -->
-   <session-config>
+    <session-config>
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>
 </web-app>

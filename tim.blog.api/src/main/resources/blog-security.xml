@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:security="http://www.springframework.org/schema/security"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/security
-       http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/security/spring-security.xsd">
     <!--<security:global-method-security pre-post-annotations="enabled"/>-->
     <!--todo disable auto-config-->
     <security:http auto-config="true">
@@ -28,12 +28,10 @@
         </security:authentication-provider>
     </security:authentication-manager>
     <!--加载JDBC配置文件-->
-    <context:property-placeholder location="classpath:user-store.properties" />
-    <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${driverClassName}" />
-        <property name="url" value="${url}" />
-        <property name="username" value="${username}" />
-        <property name="password" value="${password}" />
-    </bean>
+    <!--<context:property-placeholder location="classpath:user-store.properties" />-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          p:username="root"
+          p:password="root"
+          p:driverClassName="com.mysql.jdbc.Driver"
+          p:url="jdbc:mysql://127.0.0.1:3306/blog"/>
 </beans>

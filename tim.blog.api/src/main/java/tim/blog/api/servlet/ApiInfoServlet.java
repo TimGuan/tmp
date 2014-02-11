@@ -16,8 +16,9 @@ import java.nio.charset.Charset;
  * api info,format as xml
  */
 @WebServlet("/apiInfo")
-public class ApiInfoServlet extends HttpServlet{
-    private static final long   serialVersionUID = 1L;
+public class ApiInfoServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getOutputStream().write("api info".getBytes(Charset.forName("utf-8")));

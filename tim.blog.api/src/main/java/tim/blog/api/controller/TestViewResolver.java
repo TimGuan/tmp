@@ -1,12 +1,9 @@
 package tim.blog.api.controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
-import tim.blog.api.model.Demo;
+import tim.blog.api.model.DemoEntity;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,15 +13,15 @@ import tim.blog.api.model.Demo;
  * This is a demo.
  */
 @Controller
-@RequestMapping(value="/resolver")
+@RequestMapping(value = "/resolver")
 public class TestViewResolver {
     @RequestMapping(value = "/hello")
-    public ModelAndView hello(){
-        ModelAndView view=new ModelAndView();
-        Demo demo=new Demo();
+    public ModelAndView hello() {
+        ModelAndView view = new ModelAndView();
+        DemoEntity demo = new DemoEntity();
         demo.setName("name");
         demo.setId(123);
-        view.addObject("message",demo);
+        view.addObject("message", demo);
         view.setViewName("index");
         return view;
     }
