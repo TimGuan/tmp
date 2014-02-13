@@ -3,6 +3,7 @@ package tim.blog.api.model;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,6 +14,7 @@ import javax.persistence.Id;
  */
 @javax.persistence.Table(name = "demo", schema = "", catalog = "blog")
 @Entity
+@XmlRootElement
 public class DemoEntity {
     private int id;
     private String name;

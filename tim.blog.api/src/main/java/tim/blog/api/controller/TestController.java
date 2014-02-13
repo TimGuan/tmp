@@ -20,6 +20,7 @@ import java.util.List;
 public class TestController {
     @Autowired
     TestService testService;
+
     @RequestMapping(value = "/hello/{name}")
     public String hello(@PathVariable(value = "name") String param) {
         return "Hello," + param;

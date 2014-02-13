@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tim.blog.api.dao.TestDao;
 import tim.blog.api.model.DemoEntity;
+
 import java.util.List;
 
 /**
@@ -20,6 +21,7 @@ import java.util.List;
 public class TestService {
     @Autowired
     private TestDao testDao;
+
     public List<DemoEntity> getDemos() {
         return testDao.getDemos();
     }
