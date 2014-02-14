@@ -10,7 +10,6 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:blog-persistence.xml
-            classpath:blog-security.xml
         </param-value>
     </context-param>
     <filter>
@@ -23,19 +22,8 @@
             <param-value>UTF-8</param-value>
         </init-param>
     </filter>
-    <!-- Enables Spring Security -->
-    <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>
-            org.springframework.web.filter.DelegatingFilterProxy
-        </filter-class>
-    </filter>
     <filter-mapping>
         <filter-name>encoding-filter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     <!-- The front controller of this Spring Web application, responsible for handling all application requests -->

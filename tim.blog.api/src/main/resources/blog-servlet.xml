@@ -3,32 +3,23 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-4.0.xsd
             http://www.springframework.org/schema/mvc
-            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+            http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
     <!-- 启用spring注解@Required, @Autowired, @PostConstruct-->
     <context:annotation-config/>
-    <!-- 设置使用注解的类所在的jar包 -->
-    <!--http://jinnianshilongnian.iteye.com/blog/1762632-->
-    <!--不要覆盖webappcontext中装载service、repoistory等-->
-    <context:component-scan base-package="tim.blog.api" use-default-filters="false">
+    <!-- 设置使用注解的类所在的jar包  http://jinnianshilongnian.iteye.com/blog/1762632-->
+    <context:component-scan base-package="tim.blog.api.*" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-    <!--controller上使用spring security-->
-    <security:global-method-security pre-post-annotations="enabled"/>
     <!-- 完成请求和注解POJO的映射,mvc:annotation-driven开启mvc annotation默认使用RequestMappingHandlerAdapter,不需要重复配置-->
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
     <!-- Turns on support for mapping requests to Spring MVC @Controller methods
           Also registers default Formatters and Validators for use across all @Controllers -->
     <mvc:annotation-driven/>
-    <mvc:default-servlet-handler/>
-    <mvc:resources mapping="/js/" location="../webapp/static_resources/js/"/>
-    <mvc:resources mapping="/css/" location="../webapp/static_resources/css/"/>
-    <mvc:resources mapping="/image/" location="../webapp/static_resources/image/"/>
     <!-- 配置内容协商视图解析 -->
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="order" value="1"/>
@@ -40,7 +31,6 @@
                         <constructor-arg>
                             <map>
                                 <entry key="json" value="application/json"/>
-                                <entry key="xml" value="application/xml"/>
                             </map>
                         </constructor-arg>
                     </bean>
@@ -52,18 +42,6 @@
             <list>
                 <!--json view-->
                 <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-                </bean>
-                <!-- XML View -->
-                <bean class="org.springframework.web.servlet.view.xml.MarshallingView">
-                    <constructor-arg>
-                        <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-                            <property name="packagesToScan">
-                                <list>
-                                    <value>tim.blog.api.model</value>
-                                </list>
-                            </property>
-                        </bean>
-                    </constructor-arg>
                 </bean>
             </list>
         </property>

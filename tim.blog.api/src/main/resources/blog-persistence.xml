@@ -4,16 +4,16 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    <!--SessionFactory的配置，
+    Hibernate的各种属性、实体映射文件等，都可以用这种方式配置-->
     <context:component-scan base-package="tim.blog.api">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
-    <!--SessionFactory的配置，Hibernate的各种属性、实体映射文件等，都可以用这种方式配置-->
+    </context:component-scan>        
     <bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource" p:username="root" p:password="root"
           p:driverClassName="com.mysql.jdbc.Driver"
           p:url="jdbc:mysql://127.0.0.1:3306/blog"/>
@@ -26,10 +26,18 @@
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
-                <!--mysql engine-->
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <!--mysql engine-->
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.autoReconnect">true</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/blog</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <prop key="hibernate.connection.username">root</prop>
+                <prop key="hibernate.connection.password">root</prop>
+                <!--<prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/blog</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <prop key="hibernate.connection.username">root</prop>
+                <prop key="hibernate.connection.password">123</prop> -->
             </props>
         </property>
     </bean>
