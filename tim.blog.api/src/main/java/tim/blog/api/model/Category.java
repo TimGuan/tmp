@@ -1,6 +1,7 @@
 package tim.blog.api.model;
 
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -17,7 +18,7 @@ public class Category {
     private Integer isNav;
     private String categoryName;
 
-    @javax.persistence.Column(name = "category_id")
+    @Column(name = "category_id")
     @Id
     public int getCategoryId() {
         return categoryId;
@@ -27,7 +28,7 @@ public class Category {
         this.categoryId = categoryId;
     }
 
-    @javax.persistence.Column(name = "is_nav")
+    @Column(name = "is_nav")
     @Basic
     public Integer getNav() {
         return isNav;
@@ -37,7 +38,7 @@ public class Category {
         isNav = nav;
     }
 
-    @javax.persistence.Column(name = "category_name")
+    @Column(name = "category_name")
     @Basic
     public String getCategoryName() {
         return categoryName;
