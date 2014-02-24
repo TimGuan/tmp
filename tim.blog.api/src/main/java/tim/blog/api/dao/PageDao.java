@@ -18,9 +18,7 @@ import java.util.List;
 @Repository
 public class PageDao extends BaseDao{
     public List<Page> getAllPage() {
-        Criteria criteria = getSession().createCriteria(Page.class);
-        criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
-        List<Page> result = criteria.list();
-        return result;
+        List<Page> list=getSession().createQuery("from Page").list();
+        return list;
     }
 }

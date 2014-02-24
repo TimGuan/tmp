@@ -14,7 +14,7 @@
     <context:component-scan base-package="tim.blog.api">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>        
-    <bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource" p:username="root" p:password="root"
+    <bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource" p:username="root" p:password="123"
           p:driverClassName="com.mysql.jdbc.Driver"
           p:url="jdbc:mysql://127.0.0.1:3306/blog"/>
     <tx:annotation-driven/>

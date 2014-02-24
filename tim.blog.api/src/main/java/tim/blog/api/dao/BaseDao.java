@@ -14,11 +14,10 @@ import java.util.HashMap;
 import java.util.List;
 
 @Repository
-@Transactional
+@Transactional//do not use transactional on base class
 public abstract class BaseDao {
     @Autowired
     private SessionFactory sessionFactory;
-
     public <T> Serializable save(T t) {
         return getSession().save(t);
     }
@@ -64,4 +63,9 @@ public abstract class BaseDao {
     public <T> void delete(Class<T> type, long id) {
         getSession().delete(get(type, id));
     }
+    protected void close(){
+        getSession().close();
+    }
+
 }
+

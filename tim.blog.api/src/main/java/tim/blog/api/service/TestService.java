@@ -17,7 +17,6 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Service
-@Transactional
 public class TestService {
     @Autowired
     private TestDao testDao;

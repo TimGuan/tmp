@@ -14,11 +14,9 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Repository
-public class CategoryDao extends BaseDao {
+public class CategoryDao extends BaseDao{
     public List<Category> getAllCategory() {
-        Criteria criteria = getSession().createCriteria(Category.class);
-        criteria.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
-        List<Category> result = criteria.list();
+        List<Category> result = getSession().createQuery("from Category ").list();
         return result;
     }
 }
