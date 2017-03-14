@@ -1,0 +1,44 @@
+
+    @Test
+    public void testRsaEncryptAndDecryps() throws UnsupportedEncodingException {
+        KeyPairGenerator keygen;
+        try {
+            byte[] pub = Base64Util.decode(
+                "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAOoT2i2GMSzeGU/o8sXT7yyxEuDFDaxpGVtqaU7clu/A92R0"
+                + "+dfZb3zvq34oocnWVjSLV+H7oysfq4bkDDyY8vkCAwEAAQ==");
+            byte[] pri = Base64Util.decode(
+                "MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEA6hPaLYYxLN4ZT"
+                + "+jyxdPvLLES4MUNrGkZW2ppTtyW78D3ZHT519lvfO+rfiihydZWNItX4fujKx+rhuQMPJjy"
+                + "+QIDAQABAkBtx4G7eAP4FvGoGIhDX3H8c892uvP"
+                + "+uAu8Y9ufsLTZG7E3kWstPkQcCEjN8XXfHxWAfydwl5Vfh94BKn97g9kBAiEA+59yAjxQq34Gokmfsqi/D8nw9C0MjEFVDbIRx"
+                +
+                "/daUwUCIQDuJkW1py7NGuz+W"
+                + "+VBFOwxOx9SHjh33sDopoIJUVgKZQIhAOj2nbKuLy4n13KH4cCi9YpjuKAJ2XU9w8aTWF0giVMVAiBpeaXyOGNwD/bbCRRWaM"
+                + "/bVhYfJqdX396MrAJ34gEeSQIhAJGa5i51JTMWF/nBkywyzXJjY/cRVqY+iNWGnxaOWMtw");
+            RsaHelper rsa = new RsaHelper(pub, pri);
+            //File file = new File("D:\\workspace\\myproject\\myproject.zip");
+            //FileInputStream fileInputStream = new FileInputStream(file);
+            //byte[] buff = new byte[(int)file.length()];
+            //fileInputStream.read(buff);
+            //byte[] secret = rsa.encrypt(buff);
+            //File fileout = new File("D:\\workspace\\myproject\\myproject.biz.iml");
+            //FileOutputStream fileOutputStream = new FileOutputStream(fileout);
+            //fileOutputStream.write(secret);
+            //fileInputStream.close();
+            //fileOutputStream.close();
+            File file = new File("D:\\workspace\\myproject\\myproject.biz.iml");
+            FileInputStream fileInputStream = new FileInputStream(file);
+            byte[] buff = new byte[(int)file.length()];
+            fileInputStream.read(buff);
+            byte[] secret = rsa.decrypt(buff);
+            File fileout = new File("D:\\myproject.zip");
+            FileOutputStream fileOutputStream = new FileOutputStream(fileout);
+            fileOutputStream.write(secret);
+            fileOutputStream.close();
+            fileInputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
